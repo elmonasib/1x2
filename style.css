@@ -26,11 +26,11 @@ body {
 
 .horse-icon { font-size: 40px; color: #ff8c00; }
 .main-footer {
-    background: #222;
+    background: #ffffff;
     color: #888;
     padding: 15px;
     text-align: center;
-    border-top: 3px solid #ff8c00;
+    border-top: 3px solid #fed39e;
 
     /* --- كود التثبيت في الأسفل --- */
     position: fixed;
@@ -117,8 +117,8 @@ body {
 
 /* --- تنسيق الهيدر فقط --- */
 .main-header {
-    background-color: #ffddb4; /* اللون المطلوب */
-    border-bottom: 2px solid #ff8c00;
+    background-color: #ffffff; /* اللون المطلوب */
+    border-bottom: 2px solid #fed39e;
     width: 100%;
     position: sticky; 
     top: 0;
