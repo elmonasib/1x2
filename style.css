@@ -1,18 +1,62 @@
-/* --- الإعدادات العامة --- */
-/* استيراد خط Poppins من Google Fonts */
+/* 1. توحيد الخط في كل مكان */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
-/* توحيد الخط لكل عناصر الموقع */
+:root {
+    --main-font: 'Poppins', sans-serif;
+    --bg-color: #f4f4f4;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --header-bg: #ffddb4; /* لون الهيدر المختار */
+    --border-orange: #ff8c00;
+}
+
+/* 2. ألوان الوضع الليلي */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --header-bg: #2d2d2d;
+    --border-orange: #ff8c00;
+}
+
+
 * {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: var(--main-font) !important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #f4f4f4;
-    -webkit-font-smoothing: antialiased; /* لجعل الخط أنعم */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.main-header {
+    background-color: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--border-orange);
+}
+
+.league-card {
+    background: var(--card-bg);
+    border-right: 5px solid var(--border-orange);
+}
+
+/* زر التبديل */
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem; /* حجم الأيقونة داخل الزر */
+    color: #333; /* لون افتراضي (فاتح) */
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
 
 .container { 
@@ -24,7 +68,12 @@ body {
 /* --- الهيدر والفوتر --- */
 
 
-.horse-icon { font-size: 40px; color: #ff8c00; }
+/* تنسيق أيقونة الحصان الاحترافية الجديدة */
+.horse-icon-new {
+    font-size: 30px; /* حجم مناسب */
+    color: #ff8c00; /* اللون البرتقالي الموحد */
+    transition: all 0.3s ease;
+}
 .main-footer {
     background: #ffffff;
     color: #888;
@@ -192,4 +241,51 @@ html {
 /* النتيجة والتوقع */
 .m-score, .m-prono {
     font-weight: 700; /* خط سميك للنتائج لجذب الانتباه */
+}
+
+.horse-icon {
+    font-size: 28px;
+    color: #ff8c00; /* اللون البرتقالي الموحد للموقع */
+    display: block;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color); /* يتغير حسب الوضع ليلي/نهاري */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+/* تعديل حجم ولون أيقونة الوضع الليلي فقط */
+.theme-btn {
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 5px !important;
+}
+
+#theme-icon {
+    font-size: 22px !important; /* تكبير حجم الأيقونة لكي تظهر بوضوح */
+    color: var(--text-color) !important; /* جعل اللون يتغير تلقائياً مع الوضع */
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover #theme-icon {
+    transform: scale(1.2); /* تأثير بسيط عند مرور الماوس */
+    color: #ff8c00 !important; /* تلوينها بالبرتقالي عند التأشير عليها */
+}
+
+#theme-icon-container svg {
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-icon-container svg:hover {
+    color: var(--border-orange);
+    transform: rotate(15.5deg);
 }
