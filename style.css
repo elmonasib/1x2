@@ -74,19 +74,139 @@ body {
     color: #ff8c00; /* اللون البرتقالي الموحد */
     transition: all 0.3s ease;
 }
+/* --- تنسيق الفوتر الجديد والمتناسق --- */
 .main-footer {
-    background: #ffffff;
-    color: #888;
-    padding: 15px;
-    text-align: center;
-    border-top: 3px solid #fed39e;
-
-    /* --- كود التثبيت في الأسفل --- */
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    background-color: var(--card-bg); /* يتبع لون البطاقات (أبيض أو أسود) */
+    color: var(--text-color);
+    padding: 40px 20px 20px;
+    border-top: 3px solid var(--border-orange); /* الخط البرتقالي الموحد */
+    margin-top: 50px; /* مساحة فوق الفوتر */
+    position: relative; /* غير ثابت كما طلبت */
     width: 100%;
-    z-index: 1000;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-section p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+.footer-title {
+    color: var(--border-orange);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.footer-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--border-orange);
+    padding-left: 5px; /* تأثير بسيط عند المرور */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.8rem;
+}
+
+/* تحسين شكل الفوتر في الوضع الليلي */
+[data-theme="dark"] .footer-bottom {
+    border-top-color: rgba(255,255,255,0.1);
+}
+
+/* --- تحسين الفوتر لوضع الهاتف --- */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 30px 15px 15px; /* تقليل المسافات */
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column; /* ترتيب العناصر تحت بعضها */
+        gap: 25px;
+    }
+
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* توسيط كل شيء */
+    }
+
+    .footer-title {
+        font-size: 1.2rem; /* تصغير العنوان قليلاً */
+        margin-bottom: 5px;
+    }
+
+    .footer-section p {
+        font-size: 0.8rem;
+        max-width: 280px; /* لكي لا يتمدد النص بشكل عريض جداً */
+        margin: 0 auto;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* جعل الروابط بجانب بعضها في سطر واحد بدلاً من قائمة طويلة */
+        flex-wrap: wrap;
+    }
+
+    .footer-links li {
+        margin-bottom: 0;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem;
+        background: rgba(255, 140, 0, 0.05); /* إطار خفيف حول الرابط */
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.75rem;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+}
+}
+
+/* قم أيضاً بإزالة هذا السطر أو تعديله لأنه لم يعد هناك حاجة لمساحة إضافية تحت الحاوية */
+.container {
+    margin-bottom: 20px !important; /* تقليل المسافة لأن الفوتر لم يعد يغطي المحتوى */
 }
 
 /* إضافة مساحة في أسفل الحاوية لكي لا يغطي الفوتر آخر مباراة */
@@ -174,64 +294,92 @@ body {
     z-index: 1000;
 }
 
+/* --- التوزيع الجديد للهيدر (يسار - وسط - يمين) --- */
+
+/* --- إعادة إحياء جمالية الهيدر (وضع الحاسوب) --- */
+
 .header-container {
-    /* هذا السطر يضمن أن الهيدر يتحرك مع عرض البطاقات (600px) */
-    max-width: 600px; 
+    max-width: 1000px; /* العرض المثالي للحاسوب ليتماشى مع محتوى الموقع */
     margin: 0 auto;
-    
     display: flex;
-    justify-content: space-between; /* اللوجو يسار والنصوص يمين */
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 12px 20px;
 }
 
-.horse-icon {
-    font-size: 28px;
-    color: #ff8c00;
-}
-
-.header-links {
+/* 1. اللوغو (أقصى اليسار) */
+.logo {
+    flex: 1;
     display: flex;
-    gap: 15px;
+    justify-content: flex-start;
+}
+
+/* 2. زر الوضع الليلي (المنتصف) */
+.theme-center-wrapper {
+    flex: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+}
+
+/* 3. الروابط (أقصى اليمين مع إعادة الجمالية) */
+.header-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* تقليل الفجوة لاستخدام البادينج بدلاً منها */
 }
 
 .header-links a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* تحسين شكل الروابط عند مرور الماوس (Hover) */
-.header-links a {
-    text-decoration: none;
-    color: #333;
-    transition: all 0.3s ease;
-    padding: 5px 8px;
-    border-radius: 4px;
-}
-
-.header-links a:hover {
-    color: #ff8c00; /* يتحول للبرتقالي عند المرور عليه */
-    background-color: rgba(255, 140, 0, 0.1); /* خلفية خفيفة جداً */
-}
-
-/* لضمان عدم تداخل الهيدر مع المحتوى الذي يليه */
-.container {
-    margin-top: 20px !important; 
-}
-
-/* نصوص الهيدر */
-.header-links a {
-    font-weight: 600; /* خط عريض قليلاً للروابط */
     letter-spacing: 0.5px;
+    padding: 8px 15px; /* مساحة داخلية تجعل الرابط كأنه زر */
+    border-radius: 8px; /* زوايا منحنية ناعمة */
+    transition: all 0.3s ease;
 }
 
+/* تأثير الـ Hover الجمالي الذي فُقد */
+.header-links a:hover {
+    color: #ff8c00; 
+    background-color: rgba(255, 140, 0, 0.1); /* خلفية برتقالية خفيفة جداً عند المرور */
+    transform: translateY(-2px); /* حركة بسيطة للأعلى */
+}
+
+/* تحسين شكل أيقونة الوضع الليلي */
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* دائرة خفيفة خلف القمر/الشمس */
+}
+
+/* التوافق مع الهواتف */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 15px;
+    }
+    .header-links a {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    .header-links {
+        gap: 5px;
+
+    }
+
+    
+}
 /* أسماء الفرق */
 .team span {
     font-weight: 500;
@@ -288,4 +436,338 @@ html {
 #theme-icon-container svg:hover {
     color: var(--border-orange);
     transform: rotate(15.5deg);
+}
+
+.site-logo {
+    height: 45px; /* يمكنك تكبير أو تصغير اللوغو بتغيير هذا الرقم */
+    width: auto;  /* يحافظ على أبعاد الصورة لكي لا تمط */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* تأثير خفيف عند مرور الماوس */
+.site-logo:hover {
+    transform: scale(1.05);
+}
+
+/* لضمان التوسط في الهيدر */
+.logo {
+    display: flex;
+    align-items: center;
+}
+/* تنسيق حاوية زر الوضع الليلي في المنتصف */
+.theme-center-wrapper {
+    flex: 0; /* لا يأخذ مساحة تمدد */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* الحاوية الرئيسية */
+.top-leagues-ranking.container {
+    max-width: 1000px; /* نفس عرض قسم الدوريات الأصلي */
+    margin: 30px auto; /* تمركز في المنتصف */
+    padding: 0; /* تأكد أن البادينج صفر لكي تلتصق البطاقات بالحواف مثل قسم الدوريات */
+    width: 100%;
+}
+
+/* توزيع الشبكة (بطاقتان دائماً) */
+.rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* توزيع 50% لكل جهة */
+    gap: 20px; /* المسافة الفاصلة بين البطاقتين */
+    width: 100%; /* إجبار الشبكة على ملء عرض الحاوية بالكامل */
+}
+
+.ranking-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.ranking-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.ranking-header img {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+.ranking-header span {
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--border-orange);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* لمنع تداخل الأسماء الطويلة */
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th {
+    font-size: 0.7rem;
+    color: #888;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+.ranking-table td {
+    font-size: 0.75rem;
+    padding: 6px 0;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* عمود النقاط */
+.ranking-table td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: var(--border-orange);
+}
+
+/* --- تعديلات خاصة للهواتف (شاشات أقل من 600px) --- */
+@media (max-width: 600px) {
+    .rankings-grid {
+        gap: 20px; /* تقليل المسافة بين البطاقات في الهاتف */
+    }
+
+    .ranking-card {
+        padding: 8px;
+    }
+
+    .ranking-header span {
+        font-size: 0.7rem; /* خط أصغر لاسم الدوري */
+    }
+
+    .ranking-table td, .ranking-table th {
+        font-size: 0.65rem; /* خط أصغر ليناسب عرض البطاقة الضيق */
+    }
+
+    /* تحجيم اسم الفريق لمنع التداخل */
+    .ranking-table td:nth-child(2) {
+        max-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* --- 1. التحكم في البنر (إخفاء في الحاسوب وإظهار في الهاتف) --- */
+.banner-mobile-only {
+    display: none !important; /* إخفاء إجباري في الحاسوب */
+}
+
+/* --- 2. تنسيق قسم الترتيب (العام) --- */
+.top-leagues-ranking {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* بطاقتان بجانب بعضهما */
+    gap: 20px;
+    width: 100%;
+}
+
+.ranking-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.ranking-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.ranking-header img { width: 22px; border-radius: 2px; }
+
+.ranking-header span {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--border-orange);
+}
+
+.ranking-table { width: 100%; border-collapse: collapse; }
+
+.ranking-table td, .ranking-table th {
+    font-size: 0.8rem;
+    padding: 6px 0;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.ranking-table td:last-child {
+    text-align: right;
+    font-weight: bold;
+    color: var(--border-orange);
+}
+
+/* إخفاء إجباري لأي شاشة أكبر من 768 بكسل */
+@media screen and (min-width: 769px) {
+    .banner-mobile-only {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* إظهار البنر في الهاتف فقط */
+@media screen and (max-width: 768px) {
+    .banner-mobile-only {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        margin: 15px auto !important;
+    }
+}
+
+    .ad-box {
+        width: 100%;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 140, 0, 0.1);
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    /* تعديل شبكة الترتيب لتظل بطاقتين */
+    .rankings-grid {
+        gap: 8px;
+    }
+
+    .ranking-card {
+        padding: 8px;
+    }
+
+    .ranking-header span { font-size: 0.7rem; }
+
+    .ranking-table td, .ranking-table th {
+        font-size: 0.65rem;
+        padding: 4px 0;
+    }
+
+    /* حماية أسماء الفرق من التداخل */
+    .ranking-table td:nth-child(2) {
+        max-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* إخفاء إجباري لأي شاشة أكبر من 768 بكسل */
+@media screen and (min-width: 769px) {
+    .banner-mobile-only {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* إخفاء الإعلان تماماً في نسخة الحاسوب */
+.banner-mobile-only {
+    display: none !important;
+}
+
+/* إعدادات الهاتف فقط */
+@media screen and (max-width: 768px) {
+    .banner-mobile-only {
+        display: flex !important; /* استخدام Flex للمركزة */
+        justify-content: center;   /* مركزة الإعلان أفقياً */
+        align-items: center;       /* مركزة الإعلان عمودياً */
+        width: 100%;
+        margin: 25px 0;           /* مسافة متساوية (25px) من الأعلى والأسفل ليكون في الوسط تماماً */
+        padding: 0;
+        background: transparent !important; /* إلغاء أي خلفية بيضاء */
+    }
+
+    .ad-box {
+        width: 100%;
+        max-width: 100%;
+        background: transparent !important; /* شفافية كاملة */
+        line-height: 0 !important;          /* قتل أي مسافة بيضاء أسفل الإعلان */
+        font-size: 0 !important;            /* قتل أي مسافة ناتجة عن النصوص المخفية */
+        text-align: center;
+    }
+
+    /* استهداف العناصر التي يولدها السكربت لإزالة أي بياض */
+    .ad-box iframe, 
+    .ad-box div, 
+    .ad-box ins,
+    .ad-box a {
+        margin: 0 auto !important;
+        display: block !important;
+        background: transparent !important; /* منع الخلفية البيضاء */
+        border: none !important;
+    }
+}
+
+/* إخفاء البنر في الحاسوب */
+.banner-bottom-mobile {
+    display: none !important;
+}
+
+/* إعدادات الهاتف */
+@media screen and (max-width: 768px) {
+    .banner-bottom-mobile {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 30px 0 !important; /* مسافة فوق وتحت البنر */
+        padding: 0;
+        background: transparent !important;
+    }
+
+    .ad-box {
+        width: 100%;
+        background: transparent !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
+        text-align: center;
+    }
+
+    /* إزالة أي خلفيات بيضاء من عناصر السكربت */
+    .ad-box iframe, 
+    .ad-box div, 
+    .ad-box ins {
+        margin: 0 auto !important;
+        display: block !important;
+        background: transparent !important;
+        border: none !important;
+    }
 }
