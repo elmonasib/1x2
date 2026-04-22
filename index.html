@@ -1,172 +1,66 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Score Pro - Pronostics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCORBET - Professional Betting</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="main-header">
-    <div class="header-container">
-        <div class="logo">
-    <a href="index.html">
-        <img src="image/logo13.png" alt="Logo" class="site-logo">
-    </a>
-</div>
-
-<button id="theme-toggle" class="theme-btn" style="background:none; border:none; cursor:pointer; padding:5px; display:flex; align-items:center;">
-    <span id="theme-icon-container" style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
-        </span>
-</button>
-
-        <nav class="header-links">
-            <a href="index.html">Accueil</a>
-            <a href="#leaguesList">Pronos</a>
-            <a href="contact.html">Contact</a>
-            
-            
-        </nav>
+    <header>
+    <div class="logo">SCORBET</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
+
+    <nav>
+        <ul class="nav-links" id="nav-list">
+    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+    <li><a href="#"><i class="fas fa-poll"></i> Results</a></li>
+    <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+</ul>
+    </nav>
 </header>
 
-    <main class="container content-wrapper">
-        <section class="main-content">
-            <div class="top-banner">
-                <img src="image/baner.png" alt="Big Match" class="banner-img">
-                <div class="banner-overlay">
-                    <span class="category-tag">Match du Jour</span>
+<div class="menu-overlay" id="overlay"></div>
+
+    <main>
+    <div class="main-wrapper">
+        <div class="content-side">
+            <div class="special-banner">
+    <img src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260" class="banner-img" alt="Match of the Day">
+    <div class="banner-overlay">
+        <span class="tag">Match of the Day</span>
+        <h2>Real Madrid vs Man City</h2>
+    </div>
+</div>
+            <div class="tabs-container">
+                <button class="tab-btn" id="btn-yesterday">Yesterday</button>
+                <button class="tab-btn active" id="btn-today">Today</button>
+                <button class="tab-btn" id="btn-tomorrow">Tomorrow</button>
+            </div>
+
+            <div id="content-area">
                 </div>
+        </div>
+
+        <aside class="sidebar-ad">
+            <div class="ad-placeholder">
+                <span>ADVERTISEMENT</span>
             </div>
-
-            <div class="days-tabs">
-                <div class="tab-item" id="tab-yesterday">Hier</div>
-                <div class="tab-item active" id="tab-today">Aujourd'hui</div>
-                <div class="tab-item" id="tab-tomorrow">Demain</div>
-            </div>
-
-            <div id="leaguesList" class="leagues-container"></div>
-
-<div class="banner-mobile-only container" style="display: none;">
-    <div class="ad-box">
-        <script type="text/javascript" charset="utf-8" src="https://www.gambling-affiliation.com/cpm/v=8cpqvVhAOj6OdMDzUXT4g1tr8WaSBOhVRzDCVd0eoWw_GA7331V2&aff_var_1="></script>
+        </aside>
     </div>
-</div>
+</main>
 
-            <section class="top-leagues-ranking container">
-    <h3 class="section-title">Classement des Grandes Ligues</h3>
-    <div class="rankings-grid">
-
-        
-        
-        <div class="ranking-card">
-            <div class="ranking-header">
-                <img src="https://flagcdn.com/w40/gb-eng.png" alt="EPL">
-                <span>Premier League</span>
-            </div>
-            <table class="ranking-table">
-                <thead>
-                    <tr><th>#</th><th>Club</th><th>Pts</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Man City</td><td>--</td></tr>
-                    <tr><td>2</td><td>Arsenal</td><td>--</td></tr>
-                    <tr><td>3</td><td>Liverpool</td><td>--</td></tr>
-                    <tr><td>4</td><td>Aston Villa</td><td>--</td></tr>
-                    <tr><td>5</td><td>Tottenham</td><td>--</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="ranking-card">
-            <div class="ranking-header">
-                <img src="https://flagcdn.com/w40/es.png" alt="La Liga">
-                <span>La Liga</span>
-            </div>
-            <table class="ranking-table">
-                <thead>
-                    <tr><th>#</th><th>Club</th><th>Pts</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Real Madrid</td><td>60</td></tr>
-                    <tr><td>2</td><td>Barcelona</td><td>--</td></tr>
-                    <tr><td>3</td><td>Girona</td><td>--</td></tr>
-                    <tr><td>4</td><td>Atlético</td><td>--</td></tr>
-                    <tr><td>5</td><td>Athletic Club</td><td>--</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="ranking-card">
-            <div class="ranking-header">
-                <img src="https://flagcdn.com/w40/es.png" alt="La Liga">
-                <span>La Liga</span>
-            </div>
-            <table class="ranking-table">
-                <thead>
-                    <tr><th>#</th><th>Club</th><th>Pts</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Real Madrid</td><td>60</td></tr>
-                    <tr><td>2</td><td>Barcelona</td><td>--</td></tr>
-                    <tr><td>3</td><td>Girona</td><td>--</td></tr>
-                    <tr><td>4</td><td>Atlético</td><td>--</td></tr>
-                    <tr><td>5</td><td>Athletic Club</td><td>--</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-</section>
-        </section>
-
-        
-
-        <aside class="sidebar-ads">
-    <div class="ad-slot">
-        <script type="text/javascript" charset="utf-8" src="https://www.gambling-affiliation.com/cpm/v=zkDDP1xECJtBvsqcTD68co7SSjBT6UJU.4b2FkM7ACI_GA7331V2&aff_var_1="></script>
-    </div>
-
-    <div class="ad-slot">
-        <script type="text/javascript" charset="utf-8" src="https://www.gambling-affiliation.com/cpm/v=gNoaOZYSFp3WH7kJ.3tWLWt7uyXu.Mbs6.loegwhyew_GA7331V2"></script>
-    </div>
-</aside>
-
-    </main>
-<div class="banner-bottom-mobile container">
-    <div class="ad-box">
-        <script type="text/javascript" charset="utf-8" src="https://www.gambling-affiliation.com/cpm/v=ndKlUHhVAb9O.oz8tjbsrfRZ8S63.G0RUQgwPuE00M8_GA7331V2"></script>
-    </div>
-</div>
-    <footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3 class="footer-title">1X2 Pronos</h3>
-            <p>Expert en analyses sportives et pronostics quotidiens pour vous aider à mieux parier.</p>
-        </div>
-
-        <div class="footer-section">
-            <h4 class="footer-subtitle">Navigation</h4>
-            <ul class="footer-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="#leaguesList">Pronostics</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4 class="footer-subtitle">Légal</h4>
-            <p>+18 | Jouer comporte des risques. Soyez responsable.</p>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2026 <strong>1X2 Pronos</strong>. Tous droits réservés.</p>
-    </div>
-</footer>
+    <footer>
+        <p>&copy; 2026 SCORBET. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

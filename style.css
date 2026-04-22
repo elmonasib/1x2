@@ -1,773 +1,530 @@
-/* 1. توحيد الخط في كل مكان */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
-
-:root {
-    --main-font: 'Poppins', sans-serif;
-    --bg-color: #f4f4f4;
-    --card-bg: #ffffff;
-    --text-color: #333333;
-    --header-bg: #ffddb4; /* لون الهيدر المختار */
-    --border-orange: #ff8c00;
+/* إعدادات الموقع العامة بنمط الـ Dark Web */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* خلفية الموقع الداكنة */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* 2. ألوان الوضع الليلي */
-[data-theme="dark"] {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-color: #e0e0e0;
-    --header-bg: #2d2d2d;
-    --border-orange: #ff8c00;
+/* تنسيق الهيدر */
+header {
+    background-color: #0A0C0B; /* اللون المطلوب */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 1px solid #1f1f1f;
 }
 
+/* شعار SCORBET */
+.logo {
+    color: #FACC15; /* اللون المطلوب للشعار */
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 
-* {
-    font-family: var(--main-font) !important;
-    box-sizing: border-box;
+/* روابط الهيدر */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: 0.3s;
-}
-
-.main-header {
-    background-color: var(--header-bg);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid var(--border-orange);
-}
-
-.league-card {
-    background: var(--card-bg);
-    border-right: 5px solid var(--border-orange);
-}
-
-/* زر التبديل */
-.theme-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem; /* حجم الأيقونة داخل الزر */
-    color: #333; /* لون افتراضي (فاتح) */
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    padding: 0;
-}
-
-.container { 
-    max-width: 1000px; /* هذا الرقم يتحكم في عرض البطاقات */
-    margin: 0 auto; 
-    padding: 0 20px; /* زيادة الفراغ الداخلي الجانبي */
-    
-}
-/* --- الهيدر والفوتر --- */
-
-
-/* تنسيق أيقونة الحصان الاحترافية الجديدة */
-.horse-icon-new {
-    font-size: 30px; /* حجم مناسب */
-    color: #ff8c00; /* اللون البرتقالي الموحد */
+.nav-links li a {
+    color: #ffffff; /* روابط بيضاء */
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
 }
-/* --- تنسيق الفوتر الجديد والمتناسق --- */
-.main-footer {
-    background-color: var(--card-bg); /* يتبع لون البطاقات (أبيض أو أسود) */
-    color: var(--text-color);
-    padding: 40px 20px 20px;
-    border-top: 3px solid var(--border-orange); /* الخط البرتقالي الموحد */
-    margin-top: 50px; /* مساحة فوق الفوتر */
-    position: relative; /* غير ثابت كما طلبت */
-    width: 100%;
+
+/* تحول الروابط عند التحويم */
+.nav-links li a:hover {
+    color: #FACC15; /* تتحول للأصفر */
+    border-bottom: 2px solid #FACC15; /* ظهور الشرطة */
 }
 
-.footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    text-align: left;
+/* منطقة المحتوى الرئيسية */
+main {
+    flex: 1;
+    padding: 5px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.footer-section p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    opacity: 0.8;
-    margin-top: 10px;
+/* تحديث حاوية أزرار الأقسام لتتطابق مع عرض البطاقات */
+.tabs-container {
+    display: flex;
+    gap: 0; /* سنلغي الفجوات لاستخدام التوزيع المتساوي */
+    margin-bottom: 30px;
+    background: #0A0C0B;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    width: 100%; /* العرض الكامل */
+    max-width: 850px; /* نفس عرض بطاقات المباريات تماماً */
+    box-sizing: border-box; /* لضمان عدم خروج الإطار عن العرض المحدد */
 }
 
-.footer-title {
-    color: var(--border-orange);
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.footer-subtitle {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.9rem;
+/* جعل كل زر يأخذ مساحة متساوية */
+.tab-btn {
+    flex: 1; /* هذا السطر سيجعل الأزرار الثلاثة بنفس العرض وتملأ الحاوية */
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 12px 0;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 8px;
     transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--border-orange);
-    padding-left: 5px; /* تأثير بسيط عند المرور */
-}
-
-.footer-bottom {
     text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    font-size: 0.8rem;
 }
 
-/* تحسين شكل الفوتر في الوضع الليلي */
-[data-theme="dark"] .footer-bottom {
-    border-top-color: rgba(255,255,255,0.1);
-}
-
-/* --- تحسين الفوتر لوضع الهاتف --- */
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 30px 15px 15px; /* تقليل المسافات */
-        text-align: center;
-    }
-
-    .footer-container {
-        display: flex;
-        flex-direction: column; /* ترتيب العناصر تحت بعضها */
-        gap: 25px;
-    }
-
-    .footer-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* توسيط كل شيء */
-    }
-
-    .footer-title {
-        font-size: 1.2rem; /* تصغير العنوان قليلاً */
-        margin-bottom: 5px;
-    }
-
-    .footer-section p {
-        font-size: 0.8rem;
-        max-width: 280px; /* لكي لا يتمدد النص بشكل عريض جداً */
-        margin: 0 auto;
-    }
-
-    .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 15px; /* جعل الروابط بجانب بعضها في سطر واحد بدلاً من قائمة طويلة */
-        flex-wrap: wrap;
-    }
-
-    .footer-links li {
-        margin-bottom: 0;
-    }
-
-    .footer-links a {
-        font-size: 0.8rem;
-        background: rgba(255, 140, 0, 0.05); /* إطار خفيف حول الرابط */
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-
-    .footer-bottom {
-        margin-top: 20px;
-        font-size: 0.75rem;
-        border-top: 1px solid rgba(0,0,0,0.05);
-    }
-}
-}
-
-/* قم أيضاً بإزالة هذا السطر أو تعديله لأنه لم يعد هناك حاجة لمساحة إضافية تحت الحاوية */
-.container {
-    margin-bottom: 20px !important; /* تقليل المسافة لأن الفوتر لم يعد يغطي المحتوى */
-}
-
-/* إضافة مساحة في أسفل الحاوية لكي لا يغطي الفوتر آخر مباراة */
-.container {
-    margin-bottom: 70px !important;
-}
-/* --- تقسيم الصفحة (الكمبيوتر) --- */
-.content-wrapper { display: flex; gap: 20px; margin-top: 20px; }
-.main-content { flex: 1; min-width: 0; }
-.sidebar-ads { width: 300px; }
-.ad-placeholder { background: #eee; height: 600px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; }
-
-/* --- البنر والتبويبات --- */
-.top-banner { position: relative; height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-.banner-img { width: 100%; height: 100%; object-fit: cover; }
-.banner-overlay { position: absolute; bottom: 15px; left: 15px; }
-.category-tag { background: #ff8c00; color: #fff; padding: 5px 12px; border-radius: 20px; font-weight: bold; }
-
-.days-tabs { display: flex; background: #fff; border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
-.tab-item { flex: 1; padding: 12px; text-align: center; cursor: pointer; font-weight: bold; color: #555; }
-.tab-item.active { background: #fff9f0; color: #ff8c00; border-bottom: 3px solid #ff8c00; }
-
-/* --- بطاقة الدوري والمباريات --- */
-.league-card { background: #fff; border-radius: 10px; border-right: 5px solid #ff8c00; margin-bottom: 10px; overflow: hidden; }
-.league-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; cursor: pointer; }
-.league-info { display: flex; align-items: center; gap: 10px; }
-.league-flag { width: 25px; height: auto; }
-.league-name { font-weight: bold; color: #333; font-size: 0.95rem; }
-
-.league-status { display: flex; align-items: center; gap: 8px; }
-.live-badge { background: #e31e24; color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; animation: blink 1s infinite; }
-@keyframes blink { 50% { opacity: 0.5; } }
-.match-count { background: #eee; padding: 2px 8px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
-
-.matches-list { display: none; background: #fafafa; border-top: 1px solid #eee; }
-.league-card.active .matches-list { display: block; }
-
-/* --- سطر المباراة (قوة التجاوب) --- */
-.match-item { display: flex; align-items: center; padding: 12px 10px; border-bottom: 1px solid #eee; gap: 8px; }
-.m-time { flex: 0 0 50px; font-size: 0.8rem; font-weight: bold; text-align: center; color: #666; }
-.m-teams { flex: 1; display: flex; justify-content: space-around; align-items: center; min-width: 0; }
-.team { flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 0; }
-.team img { width: 28px; height: 28px; object-fit: contain; margin-bottom: 4px; }
-.team span { font-size: 0.75rem; font-weight: 600; text-align: center; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.vs { font-size: 0.6rem; color: #bbb; font-weight: bold; }
-.m-prono { flex: 0 0 55px; background: #ff8c00; color: #fff; padding: 5px 0; border-radius: 6px; font-size: 0.8rem; font-weight: bold; text-align: center; }
-
-/* --- وضع الهاتف --- */
-@media (max-width: 768px) {
-    .sidebar-ads { display: none; }
-    .content-wrapper { margin-top: 10px; }
-    .league-name { font-size: 0.85rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .team img { width: 22px; height: 22px; }
-    .team span { font-size: 0.65rem; }
-}
-.m-score {
+.tab-btn.active {
+    background-color: #FACC15;
+    color: #0A0C0B;
     font-weight: bold;
-    background: #eee;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    min-width: 40px;
-    text-align: center;
 }
 
-.m-status {
-    flex: 0 0 60px;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: white;
-}
-.m-status.win { background-color: #28a745; }
-.m-status.loss { background-color: #dc3545; }
-
-/* --- تنسيق الهيدر فقط --- */
-.main-header {
-    background-color: #ffffff; /* اللون المطلوب */
-    border-bottom: 2px solid #fed39e;
+/* حاوية عرض المباريات */
+#content-area {
     width: 100%;
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
+    max-width: 850px;
 }
 
-/* --- التوزيع الجديد للهيدر (يسار - وسط - يمين) --- */
+/* رأس الدوري (الاسم + الشعار) */
+.league-header {
+    background: #0A0C0B;
+    color: #FACC15;
+    border: 1px solid #14e44b;
+    padding: 12px 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #1f1f1f;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-/* --- إعادة إحياء جمالية الهيدر (وضع الحاسوب) --- */
+.league-icon {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+}
 
-.header-container {
-    max-width: 1000px; /* العرض المثالي للحاسوب ليتماشى مع محتوى الموقع */
-    margin: 0 auto;
+.league-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* بطاقة المباراة */
+.match-card {
+    background: #1a1a1a;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border-left: 5px solid #FACC15; /* شريط أصفر جانبي */
+    transition: transform 0.2s;
 }
 
-/* 1. اللوغو (أقصى اليسار) */
-.logo {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
+.match-card:hover {
+    transform: scale(1.01);
 }
 
-/* 2. زر الوضع الليلي (المنتصف) */
-.theme-center-wrapper {
-    flex: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 60px;
+/* تنسيق الفريق والشعار داخل البطاقة */
+.team {
+    text-align: center;
+    width: 20%;
 }
 
-/* 3. الروابط (أقصى اليمين مع إعادة الجمالية) */
-.header-links {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px; /* تقليل الفجوة لاستخدام البادينج بدلاً منها */
+.team img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto 6px;
+    object-fit: contain;
 }
 
-.header-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.85rem;
-    font-weight: 700;
+.team span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* معلومات الوقت والتاريخ */
+.match-info {
+    text-align: center;
+}
+
+.match-time {
+    font-size: 0.80rem;
+    font-weight: bold;
+    display: block;
+    color: #FACC15;
+}
+
+.match-date {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* صندوق التوقعات (Prediction) */
+.prediction-tag {
+    background: #0A0C0B;
+    padding: 10px;
+    border: 1px solid #14e44b;
+    border-radius: 8px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.prediction-tag small {
+    font-size: 9px;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 8px 15px; /* مساحة داخلية تجعل الرابط كأنه زر */
-    border-radius: 8px; /* زوايا منحنية ناعمة */
-    transition: all 0.3s ease;
 }
 
-/* تأثير الـ Hover الجمالي الذي فُقد */
-.header-links a:hover {
-    color: #ff8c00; 
-    background-color: rgba(255, 140, 0, 0.1); /* خلفية برتقالية خفيفة جداً عند المرور */
-    transform: translateY(-2px); /* حركة بسيطة للأعلى */
+.prediction-tag strong {
+    color: #FACC15;
+    font-size: 13px;
 }
 
-/* تحسين شكل أيقونة الوضع الليلي */
-.theme-btn {
-    background: none;
-    border: none;
+/* تنسيق الفوتر */
+footer {
+    background-color: #0A0C0B;
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid #1f1f1f;
+    color: #444;
+    font-size: 14px;
+}
+/* --- إعدادات الحاوية الكبرى --- */
+.main-wrapper {
+    display: flex;
+    justify-content: center; /* يضمن بقاء كل شيء في منتصف الصفحة */
+    align-items: flex-start;
+    gap: 40px; /* مسافة واضحة بين البطاقات والإعلان */
+    width: 100%;
+    max-width: 1200px; /* سقف العرض الكلي للموقع */
+    margin: 0 auto; /* سنتر الحاوية في وسط الشاشة */
+    padding: 40px 20px; /* زيادة الفراغ العلوي والسفلي */
+}
+
+/* --- تصغير البطاقات والأقسام (في الحاسوب فقط) --- */
+.content-side {
+    /* قمنا بتقليص العرض هنا إلى 600px ليزيد الفراغ الجانبي */
+    flex: 0 0 600px; 
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* الأقسام ستتبع نفس العرض الصغير */
+.tabs-container {
+    display: flex;
+    width: 100%;
+    background: #0A0C0B;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    margin-bottom: 25px;
+}
+
+/* البطاقات ستتبع نفس العرض الصغير */
+#content-area {
+    width: 100%;
+}
+
+/* مساحة الإعلان الجانبية */
+.sidebar-ad {
+    flex: 0 0 250px; /* العرض الثابت للإعلان */
+    position: sticky; /* لجعل العنصر يتبع المستخدم */
+    top: 20px;       /* المسافة من أعلى الشاشة عند الالتصاق */
+    height: fit-content; /* لضمان أن الحاوية لا تمتد لنهاية الصفحة وتمنع الالتصاق */
+    align-self: flex-start; /* ضروري لعمل الـ sticky داخل الـ flex */
+}
+
+/* المربع الداخلي للإعلان */
+.ad-placeholder {
+    background-color: #0A0C0B;
+    border: 1px dashed #FACC15;
+    height: 600px; /* الارتفاع الذي اخترناه مسبقاً */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    /* تصفير الحواف لجميع العناصر داخل الهاتف لمنع الإزاحة */
+    * {
+        box-sizing: border-box;
+    }
+
+    main {
+        padding: 10px 10px !important; /* إلغاء أي بادينج جانبي قد يسبب الإزاحة */
+        display: block !important; /* تغيير من flex إلى block للتبسيط */
+    }
+
+    .main-wrapper {
+        display: block !important; /* إلغاء الفليكس لتجنب مشاكل التوسيط */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .content-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important; /* إلغاء الـ flex تماماً */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* توسيط المحتوى داخلياً */
+        justify-content: center;
+        margin: 0 auto !important;
+    }
+
+    .tabs-container, #content-area {
+        width: 95% !important; /* العرض الذي سيظهر في المنتصف */
+        margin: 0 auto 20px auto !important; /* هوامش تلقائية يميناً ويساراً للتوسيط الإجباري */
+        float: none !important; /* التأكد من عدم وجود تعويم */
+    }
+
+    .match-card {
+        width: 100% !important;
+        margin: 0 0 10px 0 !important; /* تصفير الهوامش الجانبية للبطاقة */
+    }
+
+    /* إخفاء الإعلان تماماً */
+    .sidebar-ad {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+}
+
+   @media (max-width: 1024px) {
+    /* التحكم في المربع نفسه */
+    .prediction-tag {
+        min-width: 70px;    /* 1. العرض: قلل هذا الرقم لتصغير المربع عرضياً */
+        max-width: 90px;    /* يمكنك وضع حد أقصى للعرض أيضاً */
+        padding: 4px 8px;   /* 2. الحشو: الرقم الأول للارتفاع، والثاني للعرض */
+        border-radius: 5px; /* انحناء الزوايا ليناسب الحجم الصغير */
+    }
+
+    /* التحكم في كلمة PREDICTION الصغيرة */
+    .prediction-tag small {
+        font-size: 8px;     /* 3. حجم الخط العلوي */
+        letter-spacing: 0;  /* تقليل المسافة بين الحروف لتوفير مساحة */
+        margin-bottom: 4px;
+    }
+
+    .team span {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.match-date {
+    font-size: 0.60rem;
+    color: #b2b7b4;
+}
+
+.team img {
+    width: 26px !important;
+    height: 26px !important;
+    object-fit: contain !important;
+    margin: 0 auto 8px auto !important;
+    display: block !important;
+}
+
+    /* التحكم في نص التوقع (مثل Home Win) */
+    .prediction-tag strong {
+        font-size: 10px;    /* 4. حجم خط التوقع الأساسي */
+        display: block;     /* لضمان بقائه في سطر منفصل */
+        line-height: 1;     /* تقليل المسافة العمودية بين الأسطر */
+    }
+}
+
+
+/* --- منع تمدد الصور بشكل عام --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- تنسيق البنر الخاص (منفصل تماماً) --- */
+.special-banner {
+    width: 100%; /* سيأخذ عرض الـ 600px الخاصة بالحاوية الأب */
+    height: 160px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    border: 1px solid #1f1f1f;
+}
+
+/* استهداف حصري لصورة البنر فقط */
+.special-banner .banner-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+}
+
+.banner-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+/* --- حماية شعارات الفرق والدوريات (أحجام ثابتة) --- */
+.league-icon {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+}
+
+.team img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+    margin: 0 auto 8px auto !important;
+    display: block !important;
+}
+
+.team span {
+    font-size: px;
+    font-weight: 500;
+}
+
+/* --- وضع الحاسوب: تقليص العرض لزيادة الفراغ الجانبي --- */
+.content-side {
+    flex: 0 0 600px; /* العرض المقلص المطلوب */
+    width: 600px;
+    margin: 0 auto;
+}
+
+/* استبدل الجزء الخاص بـ .main-wrapper بهذا الكود */
+.main-wrapper {
+    display: flex;
+    justify-content: center; /* سنبقي التوسيط الكلي */
+    align-items: flex-start;
+    gap: 20px;               /* هذه القيمة تتحكم في المسافة بين البطاقات والإعلان */
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* تعديل مهم لضمان عدم هروب الإعلان */
+.content-side {
+    flex: 0 0 600px;         /* العرض الثابت الذي طلبته */
+    width: 600px;
+    margin: 0;               /* أزلنا auto لكي لا يدفع الإعلان */
+}
+
+.sidebar-ad {
+    flex: 0 0 250px;         /* عرض الإعلان الثابت */
+    margin: 0;
+}
+
+/* زر القائمة - مخفي في الحاسوب */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
+    z-index: 1100;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background-color: #FACC15; /* اللون الأصفر للشعار */
+    border-radius: 2px;
     transition: 0.3s;
 }
 
-.theme-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* دائرة خفيفة خلف القمر/الشمس */
-}
-
-/* التوافق مع الهواتف */
-@media (max-width: 768px) {
-    .header-container {
-        padding: 10px 15px;
-    }
-    .header-links a {
-        padding: 6px 10px;
-        font-size: 0.75rem;
-    }
-    .header-links {
-        gap: 5px;
-
+/* --- إعدادات الهاتف --- */
+@media (max-width: 1024px) {
+    header {
+        justify-content: space-between;
+        padding: 0 15px;
     }
 
-    
-}
-/* أسماء الفرق */
-.team span {
-    font-weight: 500;
-    font-size: 0.75rem;
-}
-
-/* النتيجة والتوقع */
-.m-score, .m-prono {
-    font-weight: 700; /* خط سميك للنتائج لجذب الانتباه */
-}
-
-.horse-icon {
-    font-size: 28px;
-    color: #ff8c00; /* اللون البرتقالي الموحد للموقع */
-    display: block;
-}
-
-.theme-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-color); /* يتغير حسب الوضع ليلي/نهاري */
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-}
-/* تعديل حجم ولون أيقونة الوضع الليلي فقط */
-.theme-btn {
-    background: none !important;
-    border: none !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 5px !important;
-}
-
-#theme-icon {
-    font-size: 22px !important; /* تكبير حجم الأيقونة لكي تظهر بوضوح */
-    color: var(--text-color) !important; /* جعل اللون يتغير تلقائياً مع الوضع */
-    transition: transform 0.3s ease;
-}
-
-.theme-btn:hover #theme-icon {
-    transform: scale(1.2); /* تأثير بسيط عند مرور الماوس */
-    color: #ff8c00 !important; /* تلوينها بالبرتقالي عند التأشير عليها */
-}
-
-#theme-icon-container svg {
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-}
-
-#theme-icon-container svg:hover {
-    color: var(--border-orange);
-    transform: rotate(15.5deg);
-}
-
-.site-logo {
-    height: 45px; /* يمكنك تكبير أو تصغير اللوغو بتغيير هذا الرقم */
-    width: auto;  /* يحافظ على أبعاد الصورة لكي لا تمط */
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-/* تأثير خفيف عند مرور الماوس */
-.site-logo:hover {
-    transform: scale(1.05);
-}
-
-/* لضمان التوسط في الهيدر */
-.logo {
-    display: flex;
-    align-items: center;
-}
-/* تنسيق حاوية زر الوضع الليلي في المنتصف */
-.theme-center-wrapper {
-    flex: 0; /* لا يأخذ مساحة تمدد */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* الحاوية الرئيسية */
-.top-leagues-ranking.container {
-    max-width: 1000px; /* نفس عرض قسم الدوريات الأصلي */
-    margin: 30px auto; /* تمركز في المنتصف */
-    padding: 0; /* تأكد أن البادينج صفر لكي تلتصق البطاقات بالحواف مثل قسم الدوريات */
-    width: 100%;
-}
-
-/* توزيع الشبكة (بطاقتان دائماً) */
-.rankings-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* توزيع 50% لكل جهة */
-    gap: 20px; /* المسافة الفاصلة بين البطاقتين */
-    width: 100%; /* إجبار الشبكة على ملء عرض الحاوية بالكامل */
-}
-
-.ranking-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 140, 0, 0.2);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-}
-
-.ranking-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.ranking-header img {
-    width: 20px;
-    height: auto;
-    border-radius: 2px;
-}
-
-.ranking-header span {
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: var(--border-orange);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* لمنع تداخل الأسماء الطويلة */
-}
-
-.ranking-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.ranking-table th {
-    font-size: 0.7rem;
-    color: #888;
-    text-align: left;
-    padding-bottom: 5px;
-}
-
-.ranking-table td {
-    font-size: 0.75rem;
-    padding: 6px 0;
-    color: var(--text-color);
-    border-bottom: 1px solid rgba(0,0,0,0.03);
-}
-
-.ranking-table tr:last-child td {
-    border-bottom: none;
-}
-
-/* عمود النقاط */
-.ranking-table td:last-child {
-    text-align: right;
-    font-weight: bold;
-    color: var(--border-orange);
-}
-
-/* --- تعديلات خاصة للهواتف (شاشات أقل من 600px) --- */
-@media (max-width: 600px) {
-    .rankings-grid {
-        gap: 20px; /* تقليل المسافة بين البطاقات في الهاتف */
+    .menu-toggle {
+        display: flex; /* إظهار الزر */
+        order: 2;      /* التأكد من وجوده في أقصى اليمين */
     }
 
-    .ranking-card {
-        padding: 8px;
-    }
-
-    .ranking-header span {
-        font-size: 0.7rem; /* خط أصغر لاسم الدوري */
-    }
-
-    .ranking-table td, .ranking-table th {
-        font-size: 0.65rem; /* خط أصغر ليناسب عرض البطاقة الضيق */
-    }
-
-    /* تحجيم اسم الفريق لمنع التداخل */
-    .ranking-table td:nth-child(2) {
-        max-width: 50px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-/* --- 1. التحكم في البنر (إخفاء في الحاسوب وإظهار في الهاتف) --- */
-.banner-mobile-only {
-    display: none !important; /* إخفاء إجباري في الحاسوب */
-}
-
-/* --- 2. تنسيق قسم الترتيب (العام) --- */
-.top-leagues-ranking {
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.rankings-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* بطاقتان بجانب بعضهما */
-    gap: 20px;
-    width: 100%;
-}
-
-.ranking-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 140, 0, 0.2);
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.ranking-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.ranking-header img { width: 22px; border-radius: 2px; }
-
-.ranking-header span {
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: var(--border-orange);
-}
-
-.ranking-table { width: 100%; border-collapse: collapse; }
-
-.ranking-table td, .ranking-table th {
-    font-size: 0.8rem;
-    padding: 6px 0;
-    color: var(--text-color);
-    text-align: left;
-}
-
-.ranking-table td:last-child {
-    text-align: right;
-    font-weight: bold;
-    color: var(--border-orange);
-}
-
-/* إخفاء إجباري لأي شاشة أكبر من 768 بكسل */
-@media screen and (min-width: 769px) {
-    .banner-mobile-only {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-    }
-}
-
-/* إظهار البنر في الهاتف فقط */
-@media screen and (max-width: 768px) {
-    .banner-mobile-only {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        height: auto !important;
-        margin: 15px auto !important;
-    }
-}
-
-    .ad-box {
-        width: 100%;
-        background: var(--card-bg);
-        border-radius: 8px;
-        border: 1px solid rgba(255, 140, 0, 0.1);
-        overflow: hidden;
-        line-height: 0;
-    }
-
-    /* تعديل شبكة الترتيب لتظل بطاقتين */
-    .rankings-grid {
-        gap: 8px;
-    }
-
-    .ranking-card {
-        padding: 8px;
-    }
-
-    .ranking-header span { font-size: 0.7rem; }
-
-    .ranking-table td, .ranking-table th {
-        font-size: 0.65rem;
-        padding: 4px 0;
-    }
-
-    /* حماية أسماء الفرق من التداخل */
-    .ranking-table td:nth-child(2) {
-        max-width: 50px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-/* إخفاء إجباري لأي شاشة أكبر من 768 بكسل */
-@media screen and (min-width: 769px) {
-    .banner-mobile-only {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-    }
-}
-
-/* إخفاء الإعلان تماماً في نسخة الحاسوب */
-.banner-mobile-only {
-    display: none !important;
-}
-
-/* إعدادات الهاتف فقط */
-@media screen and (max-width: 768px) {
-    .banner-mobile-only {
-        display: flex !important; /* استخدام Flex للمركزة */
-        justify-content: center;   /* مركزة الإعلان أفقياً */
-        align-items: center;       /* مركزة الإعلان عمودياً */
-        width: 100%;
-        margin: 25px 0;           /* مسافة متساوية (25px) من الأعلى والأسفل ليكون في الوسط تماماً */
-        padding: 0;
-        background: transparent !important; /* إلغاء أي خلفية بيضاء */
-    }
-
-    .ad-box {
-        width: 100%;
-        max-width: 100%;
-        background: transparent !important; /* شفافية كاملة */
-        line-height: 0 !important;          /* قتل أي مسافة بيضاء أسفل الإعلان */
-        font-size: 0 !important;            /* قتل أي مسافة ناتجة عن النصوص المخفية */
-        text-align: center;
-    }
-
-    /* استهداف العناصر التي يولدها السكربت لإزالة أي بياض */
-    .ad-box iframe, 
-    .ad-box div, 
-    .ad-box ins,
-    .ad-box a {
-        margin: 0 auto !important;
-        display: block !important;
-        background: transparent !important; /* منع الخلفية البيضاء */
-        border: none !important;
-    }
-}
-
-/* إخفاء البنر في الحاسوب */
-.banner-bottom-mobile {
-    display: none !important;
-}
-
-/* إعدادات الهاتف */
-@media screen and (max-width: 768px) {
-    .banner-bottom-mobile {
-        display: flex !important;
-        justify-content: center;
+    .nav-links {
+        position: fixed;
+        right: -100%; /* مخفية لليمين */
+        top: 0;
+        width: 120px;
+        height: 50vh;
+        background-color: #0A0C0B;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
-        margin: 30px 0 !important; /* مسافة فوق وتحت البنر */
-        padding: 0;
-        background: transparent !important;
+        padding-top: 80px;
+        transition: 0.4s ease;
+        z-index: 1050;
+        margin: 0;
     }
 
-    .ad-box {
-        width: 100%;
-        background: transparent !important;
-        line-height: 0 !important;
-        font-size: 0 !important;
-        text-align: center;
+    .nav-links.active {
+        right: 0; /* تظهر عند الضغط */
     }
 
-    /* إزالة أي خلفيات بيضاء من عناصر السكربت */
-    .ad-box iframe, 
-    .ad-box div, 
-    .ad-box ins {
-        margin: 0 auto !important;
-        display: block !important;
-        background: transparent !important;
-        border: none !important;
+    /* طبقة التظليل */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+
+    /* تحويل الشرطات لعلامة X عند الفتح */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* تنسيق إضافي لوضع الهاتف لضمان التراصف */
+@media (max-width: 1024px) {
+    .nav-links li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    .nav-links li a i {
+        margin-right: 12px; /* مسافة أكبر قليلاً في الهاتف */
+        font-size: 20px;
     }
 }
